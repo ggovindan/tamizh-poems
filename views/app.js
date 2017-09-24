@@ -25,12 +25,9 @@ new Vue({
 
   methods: {
     newPuzzle: function() {
-      this.$http.get('/newPuzzle')
+      this.$http.get('/')
         .then((result) => {
           console.log('result=', result);
-          this.$set(this, 'puzzle', result.data.result.puzzle);
-          this.$set(this, 'wordsList', result.data.wordsList);
-          this.$set(this, 'solution', result.data.result.solution);
         }, (err) => {
           console.log('error=', err);
         });
