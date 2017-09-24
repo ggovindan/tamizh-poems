@@ -13,37 +13,29 @@
   </head>
   <body id="main">
 
-  <!-- navigation bar -->
-    <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <a class="navbar-brand"><i class="glyphicon glyphicon-hand-left" onclick="openNav()"></i> Sundara kaandam</a>
-    </div>
-  </nav>
 
   <!-- main body of our application -->
-
+  <header> <h2> உஷா வின் வலைப்பதிவு </h2></header>
   <div class="container" id="mdEditor">
-    <div id="mySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
-    </div>
-    <div class="col-sm-12">
-      <div class="panel panel-primary">
-        <div class="panel-body">
-        <span style="font-size: 150%" v-html="content"></span>
-        <!-- content of the md file goes here-->
-        </div>
-      </div>
-    </div>
+
+    <nav class="vertical-menu">
+      <ul>
+        <li><a :href="file" v-for="file in files">{{file}}</a></li>
+        <!--<li><a href="#" class="active">sakalakalavalli-malai</a></li>
+        <li><a href="#">sundara-kaandam</a></li>
+        <li><a href="#">verkuzhavi-vetkai</a></li>
+        <li><a href="#">kandar-alankaram</a></li>
+        <li><a href="#">bhaja-govindam</a></li> -->
+      </ul>
+    </nav>
+
+    <article>
+      <span style="font-size: 150%" v-html="content"></span>
+    </article>
   </div>
 
   <!-- footer -->
-  <div id="footer">
-    <a class="navbar-brand" href="https://github.com/ggovindan"><i class="glyphicon glyphicon-asterisk"></i> created by: Guru Govindan</a>
-  </div>
+  <footer> created by <a href="https://github.com/ggovindan">Guru Govindan</a></footer>
 
 
   <!-- JS -->
@@ -52,98 +44,75 @@
   <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="views/app.js"></script>
   <script type="text/javascript">
-
-  $('#selectable').delegate("td", "click", function(e) {
-    console.log($(e.currentTarget).attr('id'));
-  });
-
-
-  // side menu bar stuff
-  function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-      document.body.style.backgroundColor = "rgba(0,0,0,0.4)"
-  }
-
-  function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0";
-      document.body.style.backgroundColor = "white";
-  }
      
 
   </script>
   <style type="text/css">
   html, body { margin: 0; padding: 0; height: 100%; width: 100%; color: #333;}
-  #selectable {
-    border: 1px solid black;
+
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
   }
 
-  #selectable .solved0 {
-    background-color: #ff7f00;
+  .vertical-menu{
+    width: 200px;
   }
 
-    #selectable .solved1 {
-    background-color: #ff7f50;
-  }
-    #selectable .solved2 {
-    background-color: #dc143c;
-  }
-
-    #selectable .solved3 {
-    background-color: #ff4500;
-  }
-    #selectable .solved4 {
-    background-color: #ffd700;
-  }
-
-  #footer {
-      background:#111111;
-      width: 100%;
-      margin-top: 100px;    
-      bottom: 0;
-      clear:both;    
-      position: absolute;
-  }
-
-  .sidenav {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      background-color: #111;
-      overflow-x: hidden;
-      transition: 0.5s;
-      padding-top: 60px;
-  }
-
-  .sidenav a {
-      padding: 8px 8px 8px 32px;
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
+  .vertical-menu a {
+      background-color: #eee;
+      color: black;
       display: block;
-      transition: 0.3s;
+      padding: 12px;
+      text-decoration: none;
   }
 
-  .sidenav a:hover {
-      color: #f1f1f1;
+  .vertical-menu a:hover {
+      background-color: #ccc;
   }
 
-  .sidenav .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
+  .vertical-menu a.active {
+      background-color: #FF5733;
+      color: white;
   }
 
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
+  div.container {
+      width: 100%;
+      border: 1px solid gray;
+      background: #F3F2E7;
+  }
+
+  header, footer {
+    padding: 1em;
+    color: white;
+    background-color: #AC8989;
+    clear: left;
+    text-align: center;
+  }
+
+  nav {
+      float: left;
+      max-width: 160px;
+      margin: 10;
+      padding: 1em;
+  }
+
+  nav ul {
+      list-style-type: none;
+      padding: 0;
+  }
+     
+  nav ul a {
+      text-decoration: none;
+  }
+
+  article {
+      margin-left: 170px;
+      border-left: 1px solid gray;
+      padding: 1em;
+      overflow: hidden;
+  }
 
   </style>
 </body>
