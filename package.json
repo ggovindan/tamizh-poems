@@ -1,0 +1,32 @@
+{
+  "name": "tamizh-poems",
+  "version": "1.0.0",
+  "description": "A simple webpage for tamizh poems",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ggovindan/tamizh-poems.git"
+  },
+  "keywords": [
+    "kandar",
+    "alankaram"
+  ],
+  "author": "usha govindan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ggovindan/tamizh-poems/issues"
+  },
+  "homepage": "https://github.com/ggovindan/tamizh-poems#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "showdown": "^1.7.4",
+    "vue": "^2.4.4",
+    "vue-resource": "^1.3.4"
+  }
+}
