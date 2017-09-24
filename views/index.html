@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/themes/base/jquery-ui.css" type="text/css" media="all">
   <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico">
   </head>
-  <body>
+  <body id="main">
 
   <!-- navigation bar -->
     <nav class="navbar navbar-inverse">
@@ -22,7 +22,7 @@
 
   <!-- main body of our application -->
 
-  <div class="container" id="wordPuzzle">
+  <div class="container" id="mdEditor">
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <a href="#">About</a>
@@ -30,27 +30,11 @@
       <a href="#">Clients</a>
       <a href="#">Contact</a>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-12">
       <div class="panel panel-primary">
         <div class="panel-body">
-        <table class="table table-bordered" id="selectable">
-          <tbody>
-          <tr v-for="row, rowIndex in puzzle">
-            <td v-for="letter, lIndex in row" :id="'row=' + rowIndex + 'col=' + lIndex">{{letter}} </td>
-          </tr>
-        </table>
-
-          <div style="margin-top:10px">
-            <button class="btn btn-danger" v-on:click="newPuzzle" id="newPuzzleButton">New Puzzle</button>
-            <button class="btn btn-warning" v-on:click="solve">Solve</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-5">
-      <div class="list-group">
-        <div class="list-group-item" v-for="word in wordsList" id='word'>
-            {{ word }}
+        <span v-html="content"></span>
+        <!-- content of the md file goes here-->
         </div>
       </div>
     </div>
@@ -73,21 +57,18 @@
     console.log($(e.currentTarget).attr('id'));
   });
 
-  $(document).ready(function(){
-    $('#newPuzzleButton').click(function(){
-      $('td').each(function() {
-        $(this).removeClass();
-      })
-    })
-  })
 
   // side menu bar stuff
   function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)"
   }
 
   function closeNav() {
       document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      document.body.style.backgroundColor = "white";
   }
      
 

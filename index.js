@@ -1,5 +1,5 @@
 const express = require('express');
-// const apiRoutes = require('./middleware');
+const apiRoutes = require('./middleware');
 const bodyParser = require('body-parser');
 
 const app = express();
@@ -11,9 +11,8 @@ app.set('view engine', 'html');
 app.use(express.static(`${__dirname}/`));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.render('index');
-});
+app.get('/', apiRoutes.index);
+app.get('/defaultPage', apiRoutes.defaultPage);
 
 app.listen(process.env.PORT || 3000, function() {
   console.log('listening on http://localhost:3000');
